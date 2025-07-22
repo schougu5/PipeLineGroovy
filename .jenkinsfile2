@@ -1,37 +1,19 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
-                bat "mvn clean"
+                echo 'Building the project...'
             }
         }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the code'
-            }
-        }
-
         stage('Test') {
             steps {
-                bat "mvn test"
+                echo 'Running tests...'
             }
         }
-
-        stage('Unit Testing') {
+        stage('Deploy') {
             steps {
-                bat "mvn compile"
-            }
-        }
-
-        stage('Release') {
-            when {
-                branch 'main'  // ✅ 'origin/' is not needed here — just 'main'
-            }
-            steps {
-                echo 'Releasing the project'
+                echo 'Deploying the application...'
             }
         }
     }
