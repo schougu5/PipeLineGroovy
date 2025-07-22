@@ -37,7 +37,7 @@ bat "mvn compile"
 stage('Release')
 {
 when{
-branch "origin/master"
+branch "origin/main"
 }
 steps{
 echo 'releasing the project'
